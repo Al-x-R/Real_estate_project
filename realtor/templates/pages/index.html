@@ -11,7 +11,7 @@
       <div class="home-search p-5">
         <div class="overlay p-5">
           <h1 class="display-4 mb-4">
-            Поиск недвижимости
+            Property Searching
           </h1>
           <p class="lead">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Recusandae quas, asperiores eveniet vel nostrum magnam
             voluptatum tempore! Consectetur, id commodi!</p>
@@ -20,19 +20,19 @@
               <!-- Form Row 1 -->
               <div class="form-row">
                 <div class="col-md-4 mb-3">
-                  <label class="sr-only">Ключевые слова</label>
-                  <input type="text" name="keywords" class="form-control" placeholder="Ключевые слова">
+                  <label class="sr-only">Keywords</label>
+                  <input type="text" name="keywords" class="form-control" placeholder="Keywords">
                 </div>
 
                 <div class="col-md-4 mb-3">
-                  <label class="sr-only">Город</label>
-                  <input type="text" name="city" class="form-control" placeholder="Город">
+                  <label class="sr-only">City</label>
+                  <input type="text" name="city" class="form-control" placeholder="City">
                 </div>
 
                 <div class="col-md-4 mb-3">
-                  <label class="sr-only">Область</label>
+                  <label class="sr-only">State</label>
                   <select name="state" class="form-control">
-                  <option selected="true" disabled="disabled">Область</option>
+                  <option selected="true" disabled="disabled">State</option>
                     {% for key,value in state_choices.items %}
                         <option value="{{ key }}">{{ value }}</option>
                     {% endfor %}
@@ -42,9 +42,9 @@
               <!-- Form Row 2 -->
               <div class="form-row">
                 <div class="col-md-6 mb-3">
-                  <label class="sr-only">Спальни</label>
+                  <label class="sr-only">Bedrooms</label>
                   <select name="bedrooms" class="form-control">
-                    <option selected="true" disabled="disabled">Спальни</option>
+                    <option selected="true" disabled="disabled">Bedrooms</option>
                     {% for key,value in bedroom_choices.items %}
                         <option value="{{ key }}">{{ value }}</option>
                     {% endfor %}
@@ -52,7 +52,7 @@
                 </div>
                 <div class="col-md-6 mb-3">
                   <select name="price" class="form-control" id="type">
-                    <option selected="true" disabled="disabled">Максимальная цена</option>
+                    <option selected="true" disabled="disabled">Max Price</option>
                     {% for key,value in price_choices.items %}
                         <option value="{{ key }}">{{ value }}</option>
                     {% endfor %}
@@ -71,7 +71,7 @@
   <!-- Listings -->
   <section id="listings" class="py-5">
     <div class="container">
-      <h3 class="text-center mb-3">Последние предложения</h3>
+      <h3 class="text-center mb-3">Latest Listings</h3>
       <div class="row">
         {% if listings %}
             {% for listing in listings %}
@@ -94,15 +94,15 @@
                     <hr>
                     <div class="row py-2 text-secondary">
                         <div class="col-6">
-                        <i class="fas fa-th-large"></i> кв. м: {{ listing.sqft }}</div>
+                        <i class="fas fa-th-large"></i>Sqft: {{ listing.sqft }}</div>
                         <div class="col-6">
-                        <i class="fas fa-car"></i> Гараж: {{ listing.garage }}</div>
+                        <i class="fas fa-car"></i>Garage: {{ listing.garage }}</div>
                     </div>
                     <div class="row py-2 text-secondary">
                         <div class="col-6">
-                        <i class="fas fa-bed"></i> Спальни: {{ listing.bedrooms }}</div>
+                        <i class="fas fa-bed"></i>Bedrooms: {{ listing.bedrooms }}</div>
                         <div class="col-6">
-                        <i class="fas fa-bath"></i> Ванные комнаты: {{ listing.bathroomms }}</div>
+                        <i class="fas fa-bath"></i>Bathrooms: {{ listing.bathroomms }}</div>
                     </div>
                     <hr>
                     <div class="row py-2 text-secondary">
@@ -114,14 +114,14 @@
                         <i class="fas fa-clock"></i> {{ listing.list_date | timesince }}</div>
                     </div>
                     <hr>
-                    <a href="{% url 'listing' listing.id %}" class="btn btn-primary btn-block">Подробнее</a>
+                    <a href="{% url 'listing' listing.id %}" class="btn btn-primary btn-block">More Info</a>
                     </div>
                 </div>
                 </div>
             {% endfor %}
         {% else %}
             <div class="col-md-12">
-                <p>Нет доступных предложений</p>
+                <p>No listings</p>
             </div>
         {% endif %}
 
@@ -136,7 +136,7 @@
         <div class="col-md-4">
           <i class="fas fa-comment fa-4x mr-4"></i>
           <hr>
-          <h3>Консалтинговые услуги</h3>
+          <h3>onsulting Services</h3>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, debitis nam! Repudiandae, provident iste consequatur
             hic dignissimos ratione ea quae.</p>
         </div>
@@ -150,7 +150,7 @@
         <div class="col-md-4">
           <i class="fas fa-suitcase fa-4x mr-4"></i>
           <hr>
-          <h3>Аренда и продажа</h3>
+          <h3>Renting & Selling</h3>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, debitis nam! Repudiandae, provident iste consequatur
             hic dignissimos ratione ea quae.</p>
         </div>

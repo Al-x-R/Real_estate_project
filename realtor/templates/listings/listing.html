@@ -23,10 +23,10 @@
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item">
-            <a href="{% url 'index' %}">Главная</a>
+            <a href="{% url 'index' %}">Home</a>
           </li>
           <li class="breadcrumb-item">
-            <a href="{% url 'listings' %}">Предложения</a>
+            <a href="{% url 'listings' %}">About</a>
           </li>
           <li class="breadcrumb-item active">{{ listing.title }}</li>
         </ol>
@@ -38,7 +38,7 @@
   <!-- Listing -->
   <section id="listing" class="py-4">
     <div class="container">
-      <a href="{% url 'listings' %}" class="btn btn-light mb-4">Вернуться к предложениям</a>
+      <a href="{% url 'listings' %}" class="btn btn-light mb-4">Featured Listings</a>
       <div class="row">
         <div class="col-md-9">
           <!-- Home Main Image -->
@@ -97,15 +97,15 @@
                   <span class="float-right">₴{{ listing.price | intcomma }}</span>
                 </li>
                 <li class="list-group-item text-secondary">
-                  <i class="fas fa-bed"></i> Спальни:
+                  <i class="fas fa-bed"></i> Bedrooms:
                   <span class="float-right">{{ listing.bedrooms }}</span>
                 </li>
                 <li class="list-group-item text-secondary">
-                  <i class="fas fa-bath"></i> Ванные комнаты:
+                  <i class="fas fa-bath"></i>Bathrooms:
                   <span class="float-right">{{ listing.bathrooms }}</span>
                 </li>
                 <li class="list-group-item text-secondary">
-                  <i class="fas fa-car"></i> Гараж:
+                  <i class="fas fa-car"></i> Garage:
                   <span class="float-right">{{ listing.garage }}
                   </span>
                 </li>
@@ -114,20 +114,20 @@
             <div class="col-md-6">
               <ul class="list-group list-group-flush">
                 <li class="list-group-item text-secondary">
-                  <i class="fas fa-th-large"></i> Метры квадратные:
+                  <i class="fas fa-th-large"></i>Sqft:
                   <span class="float-right">{{ listing.sqft }}</span>
                 </li>
                 <li class="list-group-item text-secondary">
-                  <i class="fas fa-square"></i> Размер:
+                  <i class="fas fa-square"></i>Square Feet:
                   <span class="float-right">{{ listing.lot_size }} Acres
                   </span>
                 </li>
                 <li class="list-group-item text-secondary">
-                  <i class="fas fa-calendar"></i> Дата размещения:
+                  <i class="fas fa-calendar"></i>Listing Date:
                   <span class="float-right">{{ listing.list_date }}</span>
                 </li>
                 <li class="list-group-item text-secondary">
-                  <i class="fas fa-bed"></i> Риэлтор:
+                  <i class="fas fa-bed"></i> Realtor:
                   <span class="float-right">{{ listing.realtor }}
                   </span>
                 </li>
@@ -148,11 +148,11 @@
           <div class="card mb-3">
             <img class="card-img-top" src="{{ listing.realtor.photo.url }}" alt="">
             <div class="card-body">
-              <h5 class="card-title">Риэлтор</h5>
+              <h5 class="card-title">Property Realtor</h5>
               <h6 class="text-secondary">{{ listing.realtor }}</h6>
             </div>
           </div>
-          <button class="btn-primary btn-block btn-lg" data-toggle="modal" data-target="#inquiryModal">Сделать запрос</button>
+          <button class="btn-primary btn-block btn-lg" data-toggle="modal" data-target="#inquiryModal">Make An Inquiry</button>
         </div>
       </div>
     </div>
@@ -163,7 +163,7 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="inquiryModalLabel">Сделать запрос</h5>
+          <h5 class="modal-title" id="inquiryModalLabel">Make An Inquiry</h5>
           <button type="button" class="close" data-dismiss="modal">
             <span>&times;</span>
           </button>
@@ -179,11 +179,11 @@
             <input type="hidden" name="realtor_email" value="{{ listing.realtor.email }}">
             <input type="hidden" name="listing_id" value="{{ listing.id }}">
             <div class="form-group">
-              <label for="property_name" class="col-form-label">Имущество:</label>
+              <label for="property_name" class="col-form-label">Property:</label>
               <input type="text" name="listing" class="form-control" value="{{ listing.title }}">
             </div>
             <div class="form-group">
-              <label for="name" class="col-form-label">Имя:</label>
+              <label for="name" class="col-form-label">Name:</label>
               <input type="text" name="name" class="form-control" 
               {% if user.is_authenticated %} value="{{ user.first_name }} {{ user.last_name }}" {% endif %}
               required>
@@ -195,11 +195,11 @@
               required>
             </div>
             <div class="form-group">
-              <label for="phone" class="col-form-label">Телефон:</label>
+              <label for="phone" class="col-form-label">Phone:</label>
               <input type="text" name="phone" class="form-control">
             </div>
             <div class="form-group">
-              <label for="message" class="col-form-label">Сообщение:</label>
+              <label for="message" class="col-form-label">Message:</label>
               <textarea name="message" class="form-control"></textarea>
             </div>
             <hr>
